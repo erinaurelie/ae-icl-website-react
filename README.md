@@ -1,6 +1,6 @@
 # AE-ICL Website (React Version) 🚀
 
-A modern rebuild of the AE-ICL website, originally built with HTML, CSS, vanilla JS, and EmailJS. Now using React, Tailwind CSS, Node.js, and Nodemailer to provide a scalable full-stack solution.
+A modern rebuild of the AE-ICL website, originally built with HTML, CSS, vanilla JS, and EmailJS. Now using React, Tailwind CSS, Node.js, and Nodemailer to provide a scalable full-stack solution. Check out the previous version of this website hosted on GitHub pages [here](https://erinaurelie.github.io/ae-icl-website/)
 
 ## Features
 - Responsive UI built with React and Tailwind CSS  
