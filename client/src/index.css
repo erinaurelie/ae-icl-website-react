@@ -1,3 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap");
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  color-scheme: dark light;
+  background-color: #0E2433;
+  color: whitesmoke;
+}
+
+@layer components {
+  .frosted {
+    background-color: #ffffff26;
+    backdrop-filter: blur(10px);
+  }
+}
+
+
+@layer utilities {
+  .info-text {
+    @apply font-montserrat;
+  }
+}
