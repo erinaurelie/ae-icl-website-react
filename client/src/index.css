@@ -19,10 +19,3 @@ body {
     backdrop-filter: blur(10px);
   }
 }
-
-
-@layer utilities {
-  .info-text {
-    @apply font-montserrat;
-  }
-}

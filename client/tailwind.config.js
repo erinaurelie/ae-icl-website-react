@@ -10,8 +10,21 @@ export default {
         inter: ['Inter', 'sans-serif'],
         playfair: ['Playfair Display', 'serif'],
       },
-      fontSize: {
-        'fluid-sm': 'clamp(0.625rem, 0.466rem + 0.795vw, 1.063rem)'
+      keyframes: {
+        'fade-in-up': {
+					'0%': { opacity: '0', transform: 'translateY(50px)' },
+					'100%': { opacity: '1', transform: 'translateY(0)' }
+				},
+        'fade-out': {
+          '0%': { opacity: '1', transform: 'translateY(0)' },
+          '100%': { opacity: '0', transform: 'translateY(-10px)' },
+        }
+      },
+      animation: {
+        'fade-in-up': 'fade-in-up 0.7s ease-out',
+      },
+      transitionProperty: {
+        'slide-up': 'opacity, transform',
       }
     }
   },

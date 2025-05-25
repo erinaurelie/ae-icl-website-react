@@ -1,6 +1,8 @@
 const About = () => {
   return (
-    <div></div>
+    <section id="about">
+      {/* TODO: Add about content */}
+    </section>
   )
 }
 

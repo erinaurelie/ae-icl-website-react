@@ -1,4 +1,5 @@
-import { Header, Hero, About, Services, Contact, Footer } from './sections';
+import { Hero, About, Services, Contact, Footer } from './sections';
+import { Header } from './components';
 
 
 const App = () => {
@@ -6,18 +7,10 @@ const App = () => {
     <>
       <Header />
       <main>
-        <section id='home'>
           <Hero />
-        </section>
-        <section id='about'>
           <About />
-        </section>
-        <section id='services'>
           <Services />
-        </section>
-        <section id='contact'>
           <Contact />
-        </section>
       </main>
       <Footer />
     </>
