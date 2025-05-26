@@ -2,7 +2,7 @@ import { navLinks } from "../constants"
 
 const HamburgerMenu = ({ isOpen }) => {
   return (
-    <div className={`w-full absolute top-[10vh] frosted p-3
+    <div id="mobile-menu" className={`w-full absolute top-[10vh] frosted p-3
       ${isOpen ? 'block animate-fade-in-up'
         : '-translate-y-96 transition-slide-up duration-600'
       }`}

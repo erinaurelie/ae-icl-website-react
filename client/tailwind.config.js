@@ -8,7 +8,8 @@ export default {
     extend: {
       fontFamily: {
         inter: ['Inter', 'sans-serif'],
-        playfair: ['Playfair Display', 'serif'],
+        roboto: ['Roboto', 'sans-serif'],
+        poppins: ['Poppins', 'sans-serif']
       },
       keyframes: {
         'fade-in-up': {
@@ -25,6 +26,13 @@ export default {
       },
       transitionProperty: {
         'slide-up': 'opacity, transform',
+      }, 
+      colors: {
+        'aqua-veil' : 'rgba(46, 196, 182, 0.1)'
+      },
+      boxShadow: {
+        'oblivion': 'rgba(255, 255, 255, 0.3) 0px 4px 8px 5px',
+        'midnight': '0 6px 6px rgba(0, 0, 0, 0.5)'
       }
     }
   },
