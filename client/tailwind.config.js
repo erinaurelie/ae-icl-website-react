@@ -38,7 +38,10 @@ export default {
       }, 
       colors: {
         'aqua-veil' : 'rgba(46, 196, 182, 0.1)',
-        'sea-blue': '#61828A'
+        'sea-blue': '#61828A',
+        'ocean-teal': '#2ec4b6',
+        'navy':  '#0A2540',
+        'turquoise': '#1EAEDB'
       },
       boxShadow: {
         'oblivion': 'rgba(255, 255, 255, 0.3) 0px 4px 8px 5px',
@@ -47,7 +50,7 @@ export default {
         'text': '3px 3px 5px rgba(0, 0, 0, 0.5)'
       }, 
       padding: {
-        'section': '96px 36px'
+        'section': '96px 80px'
       }
     }
   },
