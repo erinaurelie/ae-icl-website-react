@@ -6,7 +6,7 @@ const App = () => {
   return (
     <>
       <Header />
-      <main>
+      <main className="pt-[10vh]">
           <Hero />
           <About />
           <Services />
