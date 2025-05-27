@@ -1,4 +1,4 @@
-import { SectionHeader, ServiceCard } from '../components'
+import { SectionHeader, ServiceCard, CallToAction } from '../components'
 import { services } from '../constants'
 
 const Services = () => {
@@ -19,6 +19,8 @@ const Services = () => {
         ))}
       </div>
 
+      <CallToAction />
+      
     </section>
   );
 };

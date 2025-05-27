@@ -4,6 +4,7 @@ import SectionLabel from "./SectionLabel";
 import ButtonLink from "./ButtonLink";
 import SectionHeader from "./SectionHeader";
 import ServiceCard from "./ServiceCard";
+import CallToAction from "./CallToAction";
 
 export {
   Header,
@@ -11,5 +12,6 @@ export {
   SectionLabel,
   ButtonLink,
   SectionHeader,
-  ServiceCard
+  ServiceCard,
+  CallToAction
 }

@@ -51,6 +51,9 @@ export default {
       }, 
       padding: {
         'section': '96px 80px'
+      }, 
+      borderRadius: {
+        'CTA': '10px 60px 30px'
       }
     }
   },
