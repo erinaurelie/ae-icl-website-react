@@ -1,4 +1,4 @@
-import SectionLabel from "./SectionLabel"
+import { SectionLabel } from "../components";
 
 const SectionHeader = ({ span, h1, p }) => {
   return (

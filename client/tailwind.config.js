@@ -49,9 +49,6 @@ export default {
         'cloud': 'rgba(255, 255, 255, 0.3) 0px 4px 8px 3px',
         'text': '3px 3px 5px rgba(0, 0, 0, 0.5)'
       }, 
-      padding: {
-        'section': '96px 80px'
-      }, 
       borderRadius: {
         'CTA': '10px 60px 30px'
       }

@@ -22,12 +22,12 @@ const Hero = () => {
             target='#contact-us'
             content='Schedule Consultation' 
             imgURL={arrowRight} 
-            customStyles='bg-white inline-flex items-center justify-center text-black hover:scale-105 transition-transform'
+            customStyles='bg-white inline-flex items-center justify-center text-black '
           />
           <ButtonLink 
             target='#services' 
             content='Explore Services' 
-            customStyles='border-[2px] bg-transparent text-white transition duration-300 ease-in hover:text-black hover:bg-white hover:scale-105 transition-transform' 
+            customStyles='border-[2px] bg-transparent text-white transition duration-300 ease-in hover:text-black hover:bg-white ' 
           />
         </div>
       </div>

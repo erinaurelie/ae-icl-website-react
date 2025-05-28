@@ -12,9 +12,13 @@ body {
   color: whitesmoke;
 }
 
+
 @layer components {
   .frosted {
     background-color: #ffffff26;
     backdrop-filter: blur(10px);
+  }
+  .p-section {
+    @apply px-4 sm:px-6 md:px-12 lg:px-16 py-12 sm:py-16 md:py-20 lg:py-24
   }
 }
