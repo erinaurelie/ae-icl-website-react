@@ -23,7 +23,7 @@ const Contact = () => {
             Required fields are marked with an asterisk (*)
           </p>
           <form action="" method="post" className='flex flex-col gap-8'>
-              <div className='grid grid-cols-2 gap-6'>
+              <div className='grid md:grid-cols-2 gap-6'>
                 <FormField
                   label="Name"
                   id="name"
@@ -83,7 +83,7 @@ const Contact = () => {
                 cols={5}
               />
 
-              <button type='submit' className='cursor-pointer py-4 font-bold rounded-2xl bg-[#4b5563] w-full'>
+              <button type='submit' className='cursor-pointer py-4 font-bold rounded-2xl bg-[#4b5563] w-full hover:scale-105 transition-transform'>
                 Send Message
               </button>
           </form>

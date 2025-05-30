@@ -12,4 +12,4 @@ const ButtonLink = ({ target, content, imgURL, customStyles }) => {
   )
 }
 
-export default ButtonLink
+export default ButtonLink;
