@@ -5,8 +5,45 @@ import { contactInfo, officeHours } from '../constants';
 import { useState } from 'react';
 
 const Contact = () => {
-  const [phone, setPhone] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [successMsg, setSuccessMsg] = useState('');
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    company: '',
+    phone: '',
+    message: ''
+  });
 
+  const handleChange = e => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setSuccessMsg('');
+    try {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/contact`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...formData,
+        })
+      });
+      const data = await res.json();
+      if (data.success) {
+        setSuccessMsg(data.message || "Message sent successfully!");
+        setFormData({ name: '', email: '', company: '', message: '' });
+        setPhone('');
+      } else {
+        setSuccessMsg(data.message || "Something went wrong.");
+      }
+    } catch (err) {
+      setSuccessMsg("There was an error sending your message.");
+    }
+    setLoading(false);
+  };
 
   return (
     <section id="contact-us" className="p-section">
@@ -22,71 +59,97 @@ const Contact = () => {
           <p className='text-sea-blue my-4 italic'>
             Required fields are marked with an asterisk (*)
           </p>
-          <form action="" method="post" className='flex flex-col gap-8'>
-              <div className='grid md:grid-cols-2 gap-6'>
-                <FormField
-                  label="Name"
-                  id="name"
-                  name="name"
-                  placeholder="Jane Doe"
-                  required
-                  maxLength={255}
-                />
-                <FormField
-                  label="Email Address"
-                  id="email"
-                  type="email"
-                  name="email"
-                  placeholder="jane@example.com"
-                  required
-                  maxLength={255}
-                />
-
-                <div>
-                  <label htmlFor="phone">Phone Number *</label>
-                  <PhoneInput
-                    international
-                    defaultCountry="GH"
-                    countryCallingCodeEditable={false}
-                    label='Phone Number'
-                    id='phone'
-                    type='tel'
-                    name='phone-number'
-                    inputMode='tel'
-                    maxLength={15}
-                    pattern='[0-9]'
-                    value={phone}
-                    onChange={setPhone}
-                    numberInputProps={{
-                      className: 'py-4 rounded-xl bg-transparent text-xl border border-[#0077B6] focus:border-[2px] transition-colors duration-300'
-                    }}
-                  />
-                </div>
-
-                <FormField
-                  label="Company Name"
-                  id="company"
-                  name="company"
-                  maxLength={255}
-                  required={false}
-                />
-              </div>
-              <FormField
-                label="Your Message"
-                id="message"
-                name="message"
-                placeholder="Tell us about your project or inquiry"
+          <form onSubmit={handleSubmit} className='flex flex-col gap-8'>
+            <div className='grid md:grid-cols-2 gap-6'>
+              <FormField 
+                label="Name"
+                id="name"
+                name="name"
+                placeholder="Jane Doe"
                 required
                 maxLength={255}
-                as='textarea'
-                rows={5}
-                cols={5}
+value={formData.phone}
+                  onChange={value => setFormData({ ...formData, phone: value || '' })}
+              />
+              <FormField
+                label="Email Address"
+                id="email"
+                type="email"
+                name="email"
+                placeholder="jane@example.com"
+                required
+                maxLength={255}
+                value={formData.email}
+                onChange={handleChange}
               />
 
-              <button type='submit' className='cursor-pointer py-4 font-bold rounded-2xl bg-[#4b5563] w-full hover:scale-105 transition-transform'>
-                Send Message
-              </button>
+              <div>
+                <label htmlFor="phone">Phone Number *</label>
+                <PhoneInput
+                  international
+                  defaultCountry="GH"
+                  countryCallingCodeEditable={false}
+                  label='Phone Number'
+                  id='phone'
+                  type='tel'
+                  name='phone'
+                  inputMode='tel'
+                  maxLength={15}
+                  value={formData.phone}
+                  onChange={value => setFormData({ ...formData, phone: value || '' })}
+                  numberInputProps={{
+                    className: 'py-4 rounded-xl bg-transparent text-xl border border-[#0077B6] focus:border-[2px] transition-colors duration-300'
+                  }}
+                />
+              </div>
+
+              <FormField
+                label="Company Name"
+                id="company"
+                name="company"
+                maxLength={255}
+                required={false}
+                value={formData.company}
+                onChange={handleChange}
+              />
+            </div>
+            <FormField
+              label="Your Message"
+              id="message"
+              name="message"
+              placeholder="Tell us about your project or inquiry"
+              required
+              maxLength={255}
+              as='textarea'
+              rows={5}
+              cols={5}
+              value={formData.phone}
+              onChange={value => setFormData({ ...formData, phone: value || '' })}
+            />
+
+            <button
+              type='submit'
+              className='cursor-pointer py-4 font-bold rounded-2xl bg-[#4b5563] w-full hover:scale-105 transition-transform flex items-center justify-center'
+              disabled={loading}
+            >
+              {loading ? (
+                <span>
+                  <svg className="inline w-5 h-5 mr-2 animate-spin" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="#fff" strokeWidth="4" fill="none"/>
+                    <path className="opacity-75" fill="#fff" d="M4 12a8 8 0 018-8v8z"/>
+                  </svg>
+                  Sending...
+                </span>
+              ) : (
+                "Send Message"
+              )}
+            </button>
           </form>
+          {successMsg && (
+            <div className="mt-4 text-center text-green-500 font-bold">
+              {successMsg}
+            </div>
+          )}
         </div>
 
         <div className='min-w-0'>
